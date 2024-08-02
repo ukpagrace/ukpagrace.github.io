@@ -6,5 +6,6 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://ukpagrace.github.io',
+  base: '/portfolio',
   integrations: [mdx(), sitemap(), tailwind()]
 });
