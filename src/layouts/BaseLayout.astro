@@ -4,8 +4,10 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import SideBar from "../components/SideBar.astro";
 import { ViewTransitions } from "astro:transitions";
+import { Image } from "astro:assets";
 
 import { SITE_TITLE, SITE_DESCRIPTION, TRANSITION_API } from "../config";
+import SideBarMenu from "@components/SideBarMenu.astro";
 
 const {
   image,
@@ -24,12 +26,21 @@ const {
     {TRANSITION_API && <ViewTransitions />}
   </head>
   <body>
-    <div class="bg-base-100 drawer lg:drawer-open">
+    <div class="bg-base-100 drawer">
       <input id="my-drawer" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content bg-base-100">
+        <div class="navbar w-full hidden lg:flex justify-between">
+            <!-- <div class="mx-2 flex-1 px-2">Navbar Title</div> -->
+            <Image class="mx-2 flex-1 px-2 max-w-28 h-24" format="png" width={50} height={50} src="/logo.png" alt="logo" />
+            <!-- <div class=""> -->
+              <SideBarMenu sideBarActiveItemID={sideBarActiveItemID} style="menu-horizontal"/>
+            <!-- </div> -->
+        </div>
         <Header title={SITE_TITLE} />
+
+
         <div class="md:flex md:justify-center">
-          <main class="p-6 pt-10 lg:max-w-[900px] max-w-[100vw]">
+          <main class="">
             <slot />
           </main>
         </div>

@@ -2,64 +2,156 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
-import createSlug from "../lib/createSlug"
-
+import createSlug from "../lib/createSlug";
+import { Image } from "astro:assets";
+import webImage from "../../public/webImage.png";
+import programming from "../../public/programming.png";
+import hacking from "../../public/hacking.png";
+import cloud from "../../public/cloud.png";
 const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const last_posts = posts.slice(0, 3);
 ---
 
 <BaseLayout sideBarActiveItemID="home">
-  <div class="pb-12 mt-5">
-    <div class="text-xl py-1">Hey there 👋</div>
-    <div class="text-5xl font-bold">I'm Manuel Ernesto</div>
-    <div class="text-3xl py-3 font-bold">Software Engineer and Entrepreneur</div>
-    <div class="py-2">
-      <text class="text-lg">
-        This is <b>Astrofy</b> a free and open-source template for your Personal Portfolio Website built with Astro and TailwindCSS.
-        Create in minutes a website with Blog, CV, Project Section, Store and RSS Feed. I hope you find
-        it useful!
-      </text>
+    <div class="pb-12 pt-10 bg-red">
+
+
+        <div class="relative">
+            <div class=" absolute bg-blue-500 top-0 rounded-full blur-2xl w-24 h-24"></div>
+        </div>
+
+        <div class="relative">
+            <div class=" absolute bg-yellow-200 top-32 right-0 rounded-full blur-2xl w-24 h-24"></div>
+        </div>
+        <div class="lg:max-w-[1200px] max-w-auto flex items-center justify-center">
+            <div class="hidden lg:relative lg:block">
+                <div class=" absolute bg-pink-500 -top-16 left-24 rounded-full w-[24rem] h-[24rem] blur-sm"></div>
+            </div>
+            <div class="lg:block lg:w-1/2 lg:z-10 hidden">
+                <Image
+                    src={webImage}
+                    width={800}
+                    height={800}
+                    format="png"
+                    alt="website image"
+                    class="max-w-full "
+                 />
+                <div class="relative">
+                    <div class="absolute right-0 -top-32 bg-red-200 rounded-full blur-2xl w-24 h-24"></div>
+                </div>
+            </div>
+            <div class="lg:w-1/2 w-full flex flex-col justify-center items-center">
+                <div class="text-xl">Hey I'm👋</div>
+                <div class="text-6xl py-3 font-bold">Software Developer </div>
+                <div class="py-2">
+                <text class="text-lg">
+                    Welcome, here i share my writings, solved challenges and projects.
+                    <br/>
+                    Do look around.
+                </text>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <div class="mt-8">
-      <a class="btn" href="https://twitter.com/manuelernestog" target="_blank"> Let's connect!</a>
-      <a href="https://github.com/manuelernestog/astrofy" target="_blank" class="btn btn-outline ml-5">
-        Get This template
-      </a>
+    <div>
+        <!-- <div class="relative ">
+            <div class="absolute right-32 -top-24 bg-indigo-500 rounded-tl-full rounded-tr-full w-48 h-32"></div>
+        </div> -->
+
+        <p class="text-3xl text-center my-10 font-bold">Things you can find here</p>
+
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid-flow-row gap-4">
+            <div>
+                <div class="flex justify-center">
+                    <Image
+                        src={programming}
+                        width={200}
+                        height={200}
+                        format="png"
+                        alt="programming"
+                        class="max-w-full"
+                    />
+                </div>
+                <div class="card bg-gradient-to-r from-blue-50 to-red-100 w-96 shadow-xl mx-auto">
+                    <div class="card-body items-center text-center">
+                      <h2 class="card-title">Software</h2>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="flex justify-center">
+                    <Image
+                        src={hacking}
+                        width={200}
+                        height={200}
+                        format="png"
+                        alt="hacking"
+                        class="max-w-full"
+                    />
+                </div>
+
+                <div class="card bg-gradient-to-r from-red-50 to-blue-100 w-96 shadow-xl mx-auto">
+                    <div class="card-body items-center text-center">
+                      <h2 class="card-title">Security</h2>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="flex justify-center">
+                    <Image
+                        src={cloud}
+                        width={200}
+                        height={200}
+                        format="png"
+                        alt="cloud computing"
+                        class="max-w-full"
+                    />
+                </div>
+
+                <div class="card bg-gradient-to-r from-blue-50 to-red-100 w-96 shadow-xl mx-auto">
+                    <div class="card-body items-center text-center">
+                      <h2 class="card-title">Cloud</h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-  </div>
+    <div class="mt-20">
+        <div class="text-3xl w-full font-bold mb-2 text-center mt-14">My last projects</div>
+    </div>
+    <div class="flex flex-col md:flex-row max-w-[1200px] mx-auto pt-10">
+        <HorizontalCard
+            title="Demo Project 1"
+            img="/post_img.webp"
+            desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            url="#"
+            badge="NEW"
+        />
+        <div class="divider my-0"></div>
+        <HorizontalCard
+            title="Demo Project 2"
+            img="/post_img.webp"
+            desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            url="#"
+        />
+        <div class="divider my-0"></div>
+            <HorizontalCard
+                title="Demo Project 3"
+                img="/post_img.webp"
+                desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                url="#"
+                badge="FOSS"
+            />
+        </div>
+
 
   <div>
-    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10 text-center mt-14">Latest from blog</div>
   </div>
-
-  <HorizontalCard
-    title="Demo Project 1"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="NEW"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 2"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 3"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="FOSS"
-  />
-
-  <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
-  </div>
-
+  <div class="flex flex-col md:flex-row  max-w-[1200px] mx-auto pt-10">
   {
     last_posts.map((post) => (
       <>
@@ -75,4 +167,5 @@ const last_posts = posts.slice(0, 3);
       </>
     ))
   }
+  </div>
 </BaseLayout>
