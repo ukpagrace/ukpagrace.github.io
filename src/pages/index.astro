@@ -14,7 +14,7 @@ const last_posts = posts.slice(0, 3);
 ---
 
 <BaseLayout sideBarActiveItemID="home">
-    <div class="pb-12 pt-10 bg-red">
+    <div class="pb-12 pt-10 bg-netural-950">
 
 
         <div class="relative">
@@ -22,11 +22,11 @@ const last_posts = posts.slice(0, 3);
         </div>
 
         <div class="relative">
-            <div class=" absolute bg-yellow-200 top-32 right-0 rounded-full blur-2xl w-24 h-24"></div>
+            <div class=" absolute bg-yellow-100 top-18 right-0 rounded-full blur-2xl w-24 h-24"></div>
         </div>
         <div class="lg:max-w-[1200px] max-w-auto flex items-center justify-center">
             <div class="hidden lg:relative lg:block">
-                <div class=" absolute bg-pink-500 -top-16 left-24 rounded-full w-[24rem] h-[24rem] blur-sm"></div>
+                <div class=" absolute bg-pink-500 bottom-0 left-24 rounded-full w-[24rem] h-[24rem] blur-sm"></div>
             </div>
             <div class="lg:block lg:w-1/2 lg:z-10 hidden">
                 <Image
@@ -38,18 +38,21 @@ const last_posts = posts.slice(0, 3);
                     class="max-w-full "
                  />
                 <div class="relative">
-                    <div class="absolute right-0 -top-32 bg-red-200 rounded-full blur-2xl w-24 h-24"></div>
+                    <div class="absolute right-0 -top-28 bg-red-300 rounded-full blur-2xl w-24 h-24"></div>
                 </div>
             </div>
-            <div class="lg:w-1/2 w-full flex flex-col justify-center items-center">
-                <div class="text-xl">Hey I'm👋</div>
-                <div class="text-6xl py-3 font-bold">Software Developer </div>
+            <div class="lg:w-1/2 w-full flex flex-col justify-center">
+                <div class="text-xl font-serif">Hey 👋, I'm a</div>
+                <div class="text-8xl py-3 font-bold font-serif text-purple"> <span class="text-fuchsia-300">Software</span> Developer </div>
                 <div class="py-2">
-                <text class="text-lg">
+                <text class="text-lg font-serif">
                     Welcome, here i share my writings, solved challenges and projects.
                     <br/>
                     Do look around.
                 </text>
+                </div>
+                <div class="relative">
+                    <div class="absolute -bottom-16 -right-32 bg-sky-200 rounded-full blur-2xl w-44 h-44"></div>
                 </div>
             </div>
 
@@ -60,7 +63,7 @@ const last_posts = posts.slice(0, 3);
             <div class="absolute right-32 -top-24 bg-indigo-500 rounded-tl-full rounded-tr-full w-48 h-32"></div>
         </div> -->
 
-        <p class="text-3xl text-center my-10 font-bold">Things you can find here</p>
+        <p class="text-3xl text-center my-10 font-bold font-serif">Things you can find here</p>
 
         <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid-flow-row gap-4">
             <div>
